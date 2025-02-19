@@ -4,6 +4,9 @@ project(local_path_planner)
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
@@ -110,6 +113,13 @@ catkin_package(
 ###########
 ## Build ##
 ###########
+
+add_executable(dwa src/dwa.cpp)
+
+target_link_libraries(dwa
+  ${catkin_LIBRARIES}
+)
+
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
